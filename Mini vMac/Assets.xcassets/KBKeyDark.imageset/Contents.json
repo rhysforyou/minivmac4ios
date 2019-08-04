@@ -24,6 +24,42 @@
         "mode" : "9-part",
         "center" : {
           "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 8,
+          "top" : 8,
+          "right" : 8,
+          "left" : 8
+        }
+      },
+      "idiom" : "iphone",
+      "filename" : "KBKeyDark-2.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "KBKeyDark-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
           "width" : 2,
           "height" : 2
         },
@@ -36,6 +72,42 @@
       },
       "idiom" : "iphone",
       "filename" : "KBKeyDark@2x.png",
+      "scale" : "2x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 2,
+          "height" : 2
+        },
+        "cap-insets" : {
+          "bottom" : 16,
+          "top" : 16,
+          "right" : 16,
+          "left" : 16
+        }
+      },
+      "idiom" : "iphone",
+      "filename" : "KBKeyDark@2x-3.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "KBKeyDark@2x-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "scale" : "2x"
     },
     {
@@ -62,6 +134,42 @@
         "mode" : "9-part",
         "center" : {
           "mode" : "tile",
+          "width" : 3,
+          "height" : 3
+        },
+        "cap-insets" : {
+          "bottom" : 24,
+          "top" : 24,
+          "right" : 24,
+          "left" : 24
+        }
+      },
+      "idiom" : "iphone",
+      "filename" : "KBKeyDark@3x-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
+      "filename" : "KBKeyDark@2x-2.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "3x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
           "width" : 1,
           "height" : 1
         },
@@ -81,6 +189,42 @@
         "mode" : "9-part",
         "center" : {
           "mode" : "tile",
+          "width" : 1,
+          "height" : 1
+        },
+        "cap-insets" : {
+          "bottom" : 16,
+          "top" : 16,
+          "right" : 16,
+          "left" : 16
+        }
+      },
+      "idiom" : "ipad",
+      "filename" : "KBKeyDark~ipad-2.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "KBKeyDark~iPad-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "scale" : "1x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
           "width" : 2,
           "height" : 2
         },
@@ -93,6 +237,42 @@
       },
       "idiom" : "ipad",
       "filename" : "KBKeyDark@2x~ipad.png",
+      "scale" : "2x"
+    },
+    {
+      "resizing" : {
+        "mode" : "9-part",
+        "center" : {
+          "mode" : "tile",
+          "width" : 2,
+          "height" : 2
+        },
+        "cap-insets" : {
+          "bottom" : 32,
+          "top" : 32,
+          "right" : 32,
+          "left" : 32
+        }
+      },
+      "idiom" : "ipad",
+      "filename" : "KBKeyDark@2x~ipad-1.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "ipad",
+      "filename" : "KBKeyDark~iPad@2x.png",
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
       "scale" : "2x"
     }
   ],

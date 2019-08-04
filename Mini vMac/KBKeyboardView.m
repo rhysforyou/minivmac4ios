@@ -15,6 +15,12 @@
 #define KC_OPTION 58
 #define KC_CONTROL 59
 
+@interface KBKeyboardView ()
+
+@property (nonatomic, strong, nullable) UIVisualEffectView *backgroundView;
+
+@end
+
 @implementation KBKeyboardView {
     NSMutableArray *keyPlanes;
     NSMutableSet *modifiers;
@@ -29,7 +35,11 @@
     self = [super initWithFrame:frame];
     if (self) {
         safeAreaInsets = insets;
-        self.backgroundColor = [UIColor colorWithRed:0xEB / 255.0 green:0xF0 / 255.0 blue:0xF7 / 255.0 alpha:0.9];
+        self.backgroundColor = [UIColor clearColor];
+        self.backgroundView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleSystemMaterial]];
+        self.backgroundView.frame = self.bounds;
+        self.backgroundView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        [self addSubview:self.backgroundView];
         modifiers = [NSMutableSet setWithCapacity:4];
         keysDown = [NSMutableIndexSet indexSet];
     }
@@ -106,7 +116,7 @@
     NSMutableArray *keyPlane = [NSMutableArray arrayWithCapacity:64];
     [_layout enumerateKeysForSize:selectedSize plane:plane transform:defaultKeyTransform usingBlock:^(int8_t scancode, CGRect keyFrame, CGFloat fontScale, BOOL dark, BOOL sticky) {
         KBKey *key = nil;
-        keyFrame.origin.x += safeAreaInsets.left;
+        keyFrame.origin.x += self->safeAreaInsets.left;
         if (scancode == VKC_HIDE) {
             key = [[KBHideKey alloc] initWithFrame:keyFrame];
             [key addTarget:self action:@selector(hideKeyboard:) forControlEvents:UIControlEventTouchUpInside];
@@ -125,23 +135,23 @@
             [key addTarget:self action:@selector(keyUp:) forControlEvents:UIControlEventTouchUpInside | UIControlEventTouchDragExit | UIControlEventTouchCancel];
         }
         key.dark = dark;
-        NSString *label = [_layout labelForScanCode:scancode];
+        NSString *label = [self->_layout labelForScanCode:scancode];
         if ([label containsString:@"\n"]) {
             fontScale *= [UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone ? 0.6 : 0.65;
         }
         key.label = label;
-        key.titleLabel.font = [UIFont systemFontOfSize:fontSize * fontScale weight:&UIFontWeightRegular ? UIFontWeightRegular : 1.0];
+        key.titleLabel.font = [UIFont systemFontOfSize:self->fontSize * fontScale weight:UIFontWeightRegular];
         [keyPlane addObject:key];
     }];
     return keyPlane;
 }
 
 - (NSArray<KBKey *> *)keys {
-    return [self.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [KBKey class]]];
+    return [self.backgroundView.contentView.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [KBKey class]]];
 }
 
 - (NSArray<KBKey *> *)stickyKeys {
-    return [self.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [KBStickyKey class]]];
+    return [self.backgroundView.contentView.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [KBStickyKey class]]];
 }
 
 - (void)switchToKeyPlane:(NSInteger)idx {
@@ -168,7 +178,7 @@
                 shiftCapsKey.capsLocked = [keysDown containsIndex:KC_CAPSLOCK];
             }
         }
-        [self addSubview:key];
+        [self.backgroundView.contentView addSubview:key];
     }
 }
 
