@@ -1633,7 +1633,7 @@
 				DEVELOPMENT_TEAM = 6752H6VL8N;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "Mini vMac/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "-DUSE_LIBRES";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rpowell.minivmac;
@@ -1651,7 +1651,7 @@
 				DEVELOPMENT_TEAM = 6752H6VL8N;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)";
 				INFOPLIST_FILE = "Mini vMac/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_CFLAGS = "-DUSE_LIBRES";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rpowell.minivmac;

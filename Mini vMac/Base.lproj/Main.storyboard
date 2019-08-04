@@ -223,7 +223,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Settings" id="tWH-Og-D4U">
-                        <barButtonItem key="leftBarButtonItem" image="floppy30" id="I6Y-Q1-NZU">
+                        <barButtonItem key="leftBarButtonItem" title="Disks" id="I6Y-Q1-NZU">
                             <connections>
                                 <action selector="showInsertDisk:" destination="WUA-f8-k8g" id="suC-dT-QUw"/>
                             </connections>
@@ -262,7 +262,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="EFr-QR-Vqc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="8ef-Se-DXA" detailTextLabel="CbL-Kq-e9s" style="IBUITableViewCellStyleValue1" id="iZQ-DG-qho" customClass="FileTableViewCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -300,7 +300,7 @@
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="klq-lo-Wrl"/>
-                        <barButtonItem image="Interrupt" id="YFW-lp-dCD">
+                        <barButtonItem image="chevron.down.circle" catalog="system" id="YFW-lp-dCD">
                             <connections>
                                 <action selector="macInterrupt:" destination="mbX-kA-h6M" id="zmC-N7-nZp"/>
                             </connections>
@@ -355,10 +355,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Interrupt" width="30" height="30"/>
-        <image name="floppy30" width="30" height="30"/>
+        <image name="chevron.down.circle" catalog="system" width="64" height="62"/>
         <image name="gear" catalog="system" width="64" height="60"/>
         <image name="play" catalog="system" width="58" height="64"/>
     </resources>
-    <color key="tintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+    <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

@@ -20,20 +20,22 @@ const NSUInteger KBKeyEventStickyKey = 1 << 24;
         self.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         self.titleLabel.minimumScaleFactor = 0.5;
         self.titleEdgeInsets = UIEdgeInsetsMake(0, 2, 0, 2);
-        [self setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor labelColor] forState:UIControlStateNormal];
+        [self setTintColor:[UIColor labelColor]];
     }
     return self;
 }
 
 - (void)awakeFromNib {
-    [self awakeFromNib];
+    [super awakeFromNib];
+
     self.dark = NO;
 }
 
 - (void)setDark:(BOOL)dark {
     _dark = dark;
-    [self setBackgroundImage:[UIImage imageNamed:@"KBKey"] forState:dark ? UIControlStateHighlighted : UIControlStateNormal];
-    [self setBackgroundImage:[UIImage imageNamed:@"KBKeyDark"] forState:dark ? UIControlStateNormal : UIControlStateHighlighted];
+    [self setBackgroundImage:[[UIImage imageNamed:@"KBKey"] resizableImageWithCapInsets:UIEdgeInsetsMake(8, 8, 8, 8)] forState:dark ? UIControlStateHighlighted : UIControlStateNormal];
+    [self setBackgroundImage:[[UIImage imageNamed:@"KBKeyDark"] resizableImageWithCapInsets:UIEdgeInsetsMake(8, 8, 8, 8)] forState:dark ? UIControlStateNormal : UIControlStateHighlighted];
 }
 
 - (void)setLabel:(NSString *)label {
@@ -46,7 +48,25 @@ const NSUInteger KBKeyEventStickyKey = 1 << 24;
 }
 
 - (void)setTitle:(NSString *)title forState:(UIControlState)state {
-    if (title.length > 1 && [title hasPrefix:@"@"] && ![title containsString:@"\n"]) {
+    if (title.length > 1 && [title hasPrefix:@"@@"] && ![title containsString:@"\n"]) {
+        [super setTitle:nil forState:state];
+        NSArray<NSString *> *components = [[title substringFromIndex:1] componentsSeparatedByString:@"/"];
+        if (state == UIControlStateNormal) {
+            if (components.count == 3) {
+                [super setImage:[UIImage systemImageNamed:[components[0] stringByAppendingString:components[1]]] forState:UIControlStateNormal];
+                [super setImage:[UIImage systemImageNamed:[components[0] stringByAppendingString:components[2]]] forState:UIControlStateHighlighted];
+            } else if (components.count == 1) {
+                UIImage *image = [UIImage systemImageNamed:components.firstObject];
+                [super setImage:image forState:UIControlStateNormal];
+                [super setImage:image forState:UIControlStateHighlighted];
+            } else {
+                NSLog(@"Can't set title for %@: %@", self, title);
+            }
+        } else {
+            [super setImage:[UIImage systemImageNamed:components.firstObject] forState:state];
+        }
+        self.imageEdgeInsets = UIEdgeInsetsMake(-2, 0, 0, 0);
+    } else if (title.length > 1 && [title hasPrefix:@"@"] && ![title containsString:@"\n"]) {
         [super setTitle:nil forState:state];
         NSArray<NSString *> *components = [[title substringFromIndex:1] componentsSeparatedByString:@"/"];
         if (state == UIControlStateNormal) {
